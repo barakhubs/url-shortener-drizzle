@@ -1,0 +1,381 @@
+/* ─── CSS Custom Properties ──────────────────────────────────────────────── */
+:root {
+  --color-bg: #0f172a;
+  --color-surface: #1e293b;
+  --color-border: #334155;
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-text: #f1f5f9;
+  --color-muted: #94a3b8;
+  --color-error: #f87171;
+  --color-success: #34d399;
+  --radius: 10px;
+  --font: "Inter", system-ui, sans-serif;
+}
+
+/* ─── Reset ──────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100dvh;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* ─── App shell ──────────────────────────────────────────────────────────── */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.app__header {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app__logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.5px;
+}
+
+.app__footer {
+  margin-top: auto;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-border);
+}
+
+/* ─── Home page ──────────────────────────────────────────────────────────── */
+.home {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 2rem;
+  flex: 1;
+}
+
+.home__title {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 0.5rem;
+}
+
+.home__subtitle {
+  color: var(--color-muted);
+  margin-bottom: 2.5rem;
+}
+
+.home__form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ─── UrlForm ────────────────────────────────────────────────────────────── */
+.url-form__row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.url-form__input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-text);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.url-form__input:focus {
+  border-color: var(--color-primary);
+}
+
+.url-form__button {
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.url-form__button:hover:not(:disabled) {
+  background: var(--color-primary-dark);
+}
+
+.url-form__button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.url-form__error {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+/* ─── ResultCard ─────────────────────────────────────────────────────────── */
+.result-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.result-card__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+.result-card__row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.result-card__link {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  word-break: break-all;
+}
+
+.result-card__copy {
+  padding: 0.35rem 0.85rem;
+  background: transparent;
+  border: 1px solid var(--color-primary);
+  border-radius: 6px;
+  color: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition:
+    background 0.15s,
+    color 0.15s;
+  white-space: nowrap;
+}
+
+.result-card__copy:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.result-card__original {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-card__stats-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+/* ─── Stats page ─────────────────────────────────────────────────────────── */
+.stats {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 2rem;
+  flex: 1;
+}
+
+.stats__back {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+.stats__title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.stats__original {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 1.75rem;
+}
+
+.stats__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stats__card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stats__card-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.stats__card-label {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.stats__loading,
+.stats__error {
+  text-align: center;
+  padding: 4rem 1rem;
+  color: var(--color-muted);
+}
+
+.stats__error {
+  color: var(--color-error);
+}
+
+/* ─── StatsChart ─────────────────────────────────────────────────────────── */
+.stats-chart {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem 0.75rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.stats-chart__title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+}
+
+.stats-chart__empty {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+/* ─── Referrers ──────────────────────────────────────────────────────────── */
+.stats__referrers {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+}
+
+.stats__referrers h2 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+}
+
+.stats__referrer-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stats__referrer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.stats__referrer-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-text);
+  max-width: 80%;
+}
+
+.stats__referrer-count {
+  font-weight: 600;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* ─── ErrorBoundary ──────────────────────────────────────────────────────── */
+.error-boundary {
+  max-width: 480px;
+  margin: 6rem auto;
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-boundary h2 {
+  margin-bottom: 0.5rem;
+  color: var(--color-error);
+}
+
+.error-boundary p {
+  color: var(--color-muted);
+  margin-bottom: 1.5rem;
+}
+
+.error-boundary button {
+  padding: 0.6rem 1.5rem;
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  font-weight: 600;
+}

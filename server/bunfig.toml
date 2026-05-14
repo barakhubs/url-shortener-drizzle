@@ -1,0 +1,4 @@
+# Bun runtime configuration
+[install]
+# Use the lockfile for reproducible installs
+frozenLockfile = false
