@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+.bun/
+
+# Build outputs
+client/dist/
+server/dist/
+
+# Environment — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# Drizzle generated migrations (commit these if you want migration history)
+# server/src/db/migrations/
+
+# Logs
+*.log
+bun.lockb.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+.idea/
