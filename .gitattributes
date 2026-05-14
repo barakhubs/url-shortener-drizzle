@@ -1,0 +1,8 @@
+# Ensure shell scripts always use LF in the repo (required for Linux containers)
+*.sh text eol=lf
+
+# Dockerfile always LF
+Dockerfile text eol=lf
+
+# Default: let git auto-detect everything else
+* text=auto
