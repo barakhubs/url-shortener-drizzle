@@ -26,6 +26,6 @@ export async function redirectRoute(fastify: FastifyInstance) {
 
     // 302 (not 301) so browsers do not cache the redirect.
     // This ensures every visit is counted and future URL changes take effect immediately.
-    return reply.redirect(302, url.originalUrl);
+    return reply.redirect(url.originalUrl, 302);
   });
 }
