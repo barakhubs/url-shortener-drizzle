@@ -1,10 +1,10 @@
 [build]
-builder = "nixpacks"
-buildCommand = "cd server && bun install && cd ../client && bun install && bun run build"
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
 
 [deploy]
-# drizzle-kit push runs before the server starts so the schema is always in sync
-startCommand = "cd server && bunx drizzle-kit push && bun run src/index.ts"
+# start.sh runs drizzle-kit push then starts the Fastify server
+startCommand = "/app/start.sh"
 healthcheckPath = "/health"
 healthcheckTimeout = 30
 restartPolicyType = "on_failure"
